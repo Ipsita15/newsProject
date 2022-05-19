@@ -1,0 +1,28 @@
+{% extends 'raw.html' %}
+
+{% block body%}
+{% comment %} <h3>Hey Folks!! Welcome to NewsDaily</h3> {% endcomment %}
+
+<div class="container">
+   
+<div class="row">
+
+    {% for x in api.articles%}
+    <div class="col-sm">
+    <div class="card" style="width: 20rem;">
+        <img src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{x.title}}</h5>
+          <p class="card-text">{{x.description|truncatewords:15}}</p>
+          <a href="{{x.url}}" target = "_blank"class="btn btn-sm btn-primary">Know more</a>
+        </div>
+      </div>
+      <br>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock %}
+
